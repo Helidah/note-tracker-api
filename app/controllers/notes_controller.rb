@@ -1,16 +1,16 @@
 class NotesController < ApplicationController
     def index
         render json: Note.all
-      end
+    end
     
-      def create
+    def create
         notes = @current_user.notes.create!(note_params)
         render json: notes, status: :created
-      end
+    end
     
-      private
+    private
     
-      def note_params
+    def note_params
         params.permit(:title, :content)
-      end
+    end
 end
