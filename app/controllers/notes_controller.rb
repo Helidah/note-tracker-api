@@ -7,6 +7,11 @@ class NotesController < ApplicationController
         notes = @current_user.notes.create!(note_params)
         render json: notes, status: :created
     end
+
+    def show
+        note = Note.find_by(params[:id])
+        render json: note
+    end
     
     private
     

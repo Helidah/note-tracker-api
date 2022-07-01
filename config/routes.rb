@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :notes, only: [:index, :create]
-  resources :users, only: [:index]
+  resources :notes, only: [:index, :create, :show]
+  resources :users, only: [:index, :update]
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
