@@ -8,5 +8,5 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }, uniqueness:true
   
     validates :bio, presence: true, length: {minimum: 10}
-    validates :username,  presence: true, uniqueness: true
+    validates :username, presence: true, uniqueness: true
 end

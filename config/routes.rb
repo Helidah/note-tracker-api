@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
-  resources :notes, only: [:index, :create, :show]
-  resources :users, only: [:index, :update]
-  post "/signup", to: "users#create"
-  get "/me", to: "users#show"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  namespace :api do
+    resources :notes, only: [:index, :create]
+    post "/signup", to: "users#create"
+    get "/me", to: "users#show"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
+  end
+  # all other routes will be load our React application
+  # this route definition matches:
+  # - *path: all paths not matched by one of the routes defined above
+  # - constraints:
+  #   - !req.xhr?: it's not a XHR (fetch) request
+  #   - req.format.html?: it's a request for a HTML document
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
->>>>>>> 8f0631824750801ad0af2a7d670859552d5950b1
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

@@ -2,12 +2,12 @@
 
 one:
   username: MyString
-  password_digest: MyString
-  bio: MyString
   email: MyString
+  bio: MyString
+  password_digest: MyString
 
 two:
   username: MyString
-  password_digest: MyString
-  bio: MyString
   email: MyString
+  bio: MyString
+  password_digest: MyString
